@@ -1,0 +1,156 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "d9IcUe",
+    "name": "offerHelp"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "ABOpef"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "bVCaJE"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_bVCaJE()}",
+          "property": "user.name"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "BJj33x"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "user.offerHelpChoice",
+          "style": "auto",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          },
+          "choices": [
+            " Deliver Medicines",
+            "Deliver Food",
+            "Deliver Groceries"
+          ],
+          "prompt": "${ChoiceInput_Prompt_BJj33x()}"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "1L7jds"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_1L7jds()}",
+          "property": "user.city",
+          "style": "auto",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or "
+          },
+          "choices": [
+            "Seattle",
+            "Toronto",
+            "New York",
+            "Yuriria"
+          ]
+        },
+        {
+          "$kind": "Microsoft.AttachmentInput",
+          "$designer": {
+            "id": "8L7beV"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${AttachmentInput_Prompt_8L7beV()}",
+          "property": "user.govtID",
+          "outputFormat": "all"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "iIVSYj"
+          },
+          "activity": "${SendActivity_iIVSYj()}"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "Jv68Vn"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_Jv68Vn()}",
+          "property": "user.phoneNumber"
+        },
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "Wy6LFT"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_Wy6LFT()}",
+          "property": "user.messengerID"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "EUUNJL"
+          },
+          "method": "POST",
+          "url": "https://akshit05.documents.azure.com:443/",
+          "body": {
+            "Name": "${user.name}",
+            "Location": "${user.city}",
+            "PhoneNo": "${user.phoneNumber",
+            "MessengerID": "${user.messengerID"
+          },
+          "headers": {
+            "CosmosDBKey": "I7bvqHUMVkzD1MrWg88sV1yQzrCvGnEOVBoiUhrMIIpCkeykVrhXkfT04PiYFbFc7nrhVKxjf0dPMmsjZrrZFA==",
+            "DatabaseId": "covidhelp",
+            "CollectionId": "helpers"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "eCTqCs"
+          },
+          "activity": "${SendActivity_eCTqCs()}"
+        }
+      ]
+    }
+  ],
+  "generator": "offerHelp.lg"
+}

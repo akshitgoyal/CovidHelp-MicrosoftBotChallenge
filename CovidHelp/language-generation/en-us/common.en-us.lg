@@ -1,0 +1,21 @@
+# WelcomeUser
+- Welcome to the EmptyBot sample
+# TemplateName()
+[HeroCard
+title = Akshit Goyal
+subtitle = A Friend in ${user.city} who is willing to help
+image = ${CardImages()}
+text = Akshit has a verified profile/ID. You can reach out at +1-111-111-1111 or you click the button below to reach on messenger
+buttons = Text on Facebook Messenger
+]
+
+
+
+
+
+
+# CardImages()
+- https://imgur.com/a/3sElIcR
+
+
+

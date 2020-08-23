@@ -1,0 +1,27 @@
+[import](common.lg)
+
+# TextInput_Prompt_bVCaJE()
+- What is your name?
+
+
+
+
+# ChoiceInput_Prompt_1L7jds()
+- Which city you are located in?
+
+# ChoiceInput_Prompt_BJj33x()
+- Thank you for reaching out ${user.name}. How can you help?
+
+# SendActivity_eCTqCs()
+- Thank you for your information ${user.name}! We will send you a text message once we have a match!
+
+
+# AttachmentInput_Prompt_8L7beV()
+- Just for verification purposes, please upload a picture of government ID!
+
+# TextInput_Prompt_Jv68Vn()
+- What is your phone number?
+# SendActivity_iIVSYj()
+- Please share your contact details so someone can reach out to you.
+# TextInput_Prompt_Wy6LFT()
+- What is your Messenger ID?

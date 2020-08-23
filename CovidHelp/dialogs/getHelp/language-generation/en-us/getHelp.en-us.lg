@@ -1,0 +1,24 @@
+[import](common.lg)
+
+# TextInput_Prompt_lSbBYM()
+- What is your name?
+
+
+
+
+# ChoiceInput_Prompt_hqLckM()
+- Thank you for reaching out ${user.name}. We understand that this is difficult times. How can we help you?
+
+
+# SendActivity_BnEFC3()
+- Good news! We have someone near your location who volunteered to help!
+
+
+# ChoiceInput_Prompt_jfzLNm()
+-  Hello ${user.name}, which city you are located in?
+
+
+
+
+# SendActivity_qOmoY3()
+-${TemplateName()}

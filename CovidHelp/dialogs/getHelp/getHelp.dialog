@@ -1,0 +1,120 @@
+{
+  "$kind": "Microsoft.AdaptiveDialog",
+  "$designer": {
+    "id": "adDWdf",
+    "name": "getHelp"
+  },
+  "autoEndDialog": true,
+  "defaultResultProperty": "dialog.result",
+  "triggers": [
+    {
+      "$kind": "Microsoft.OnBeginDialog",
+      "$designer": {
+        "name": "BeginDialog",
+        "id": "0BGz3I"
+      },
+      "actions": [
+        {
+          "$kind": "Microsoft.TextInput",
+          "$designer": {
+            "id": "lSbBYM"
+          },
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${TextInput_Prompt_lSbBYM()}",
+          "property": "user.name"
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "jfzLNm"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "prompt": "${ChoiceInput_Prompt_jfzLNm()}",
+          "property": "user.city",
+          "style": "auto",
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "choices": [
+            "Seattle",
+            "Toronto",
+            "New York",
+            "Yuriria",
+            "Other"
+          ]
+        },
+        {
+          "$kind": "Microsoft.ChoiceInput",
+          "$designer": {
+            "id": "hqLckM"
+          },
+          "defaultLocale": "en-us",
+          "disabled": false,
+          "maxTurnCount": 3,
+          "alwaysPrompt": false,
+          "allowInterruptions": false,
+          "choiceOptions": {
+            "includeNumbers": true,
+            "inlineOrMore": ", or ",
+            "inlineOr": " or ",
+            "inlineSeparator": ", "
+          },
+          "property": "user.offerHelpChoice",
+          "style": "auto",
+          "recognizerOptions": {
+            "recognizeOrdinals": true
+          },
+          "choices": [
+            "Get Medicines",
+            "Get Food",
+            "Get Groceries",
+            "Other"
+          ],
+          "prompt": "${ChoiceInput_Prompt_hqLckM()}"
+        },
+        {
+          "$kind": "Microsoft.HttpRequest",
+          "$designer": {
+            "id": "erOCgs"
+          },
+          "method": "GET",
+          "url": "https://akshit05.documents.azure.com:443/",
+          "body": {
+            "Name": "${user.name}",
+            "Location": "${user.city}"
+          },
+          "headers": {
+            "CosmosDBKey": "I7bvqHUMVkzD1MrWg88sV1yQzrCvGnEOVBoiUhrMIIpCkeykVrhXkfT04PiYFbFc7nrhVKxjf0dPMmsjZrrZFA==",
+            "DatabaseId": "covidhelp",
+            "CollectionId": "helpers"
+          }
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "BnEFC3"
+          },
+          "activity": "${SendActivity_BnEFC3()}"
+        },
+        {
+          "$kind": "Microsoft.SendActivity",
+          "$designer": {
+            "id": "qOmoY3"
+          },
+          "activity": "${SendActivity_qOmoY3()}"
+        }
+      ]
+    }
+  ],
+  "generator": "getHelp.lg"
+}
